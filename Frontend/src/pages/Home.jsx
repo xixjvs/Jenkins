@@ -76,7 +76,7 @@ const Home = () => {
         
         {/* Features section */}
         <div className="mt-24">
-          <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">Why Choose ProfileApp</h2>
+          <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">Why Choose ProfileApp Paul</h2>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
               <div className="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center mb-4">
