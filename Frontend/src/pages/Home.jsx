@@ -35,7 +35,7 @@ const Home = () => {
                   </div>
                 </div>
                 <p className="text-2xl font-semibold mb-4">
-                  Hello paul joseph, {currentUser.first_name || currentUser.email.split('@')[0]}!
+                  Hello Ndongo, {currentUser.first_name || currentUser.email.split('@')[0]}!
                 </p>
                 <p className="text-gray-600 mb-6">
                   Your profile is ready. View or edit your personal information.
