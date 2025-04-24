@@ -70,7 +70,8 @@ pipeline {
         stage('run'){
             steps{
                 sh '''
-                docker run --rm -d -p 8081:8081 ${DOCKERHUB_USER}/mon-frontend:latest
+                docker-compose up docker-compose.yaml
+                #docker run --rm -d -p 8081:8081 ${DOCKERHUB_USER}/mon-frontend:latest
                 '''
             }
         }
