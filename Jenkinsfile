@@ -67,6 +67,13 @@ pipeline {
                 }
             }
         }
+        stage('run'){
+            steps{
+                sh '''
+                docker run --rm -d -p 8080:8080 ${DOCKERHUB_USER}/mon-frontend:latest
+                '''
+            }
+        }
     }
 
     post {
