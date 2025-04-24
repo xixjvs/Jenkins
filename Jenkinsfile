@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_HUB_CREDENTIALS = 'jnk-creds' // ID Jenkins Credentials
-        DOCKERHUB_USER = 'pauljosephd'       // ton nom d’utilisateur Docker Hub
+        DOCKER_HUB_CREDENTIALS = 'jnk-creds'
+        DOCKERHUB_USER = 'pauljosephd'
     }
 
     stages {
@@ -14,15 +14,32 @@ pipeline {
             }
         }
 
-        stage('Build & Test Backend (Django)') {
+        stage('Check Django Project') {
             steps {
                 dir('Backend/odc') {
-                    echo "⚙️ Création de l'environnement virtuel et test de Django"
+                    echo "🔍 Vérifications initiales du projet Django"
                     sh '''
+                        set -e
                         python3 -m venv venv
                         . venv/bin/activate
                         pip install --upgrade pip
                         pip install -r requirements.txt
+
+                        python manage.py check
+                        python manage.py makemigrations --check
+                        python manage.py migrate --plan
+                    '''
+                }
+            }
+        }
+
+        stage('Build & Test Backend (Django)') {
+            steps {
+                dir('Backend/odc') {
+                    echo "⚙️ Tests Django"
+                    sh '''
+                        set -e
+                        . venv/bin/activate
                         python manage.py test
                     '''
                 }
@@ -34,6 +51,7 @@ pipeline {
                 dir('Frontend') {
                     echo "⚙️ Installation et test du frontend React"
                     sh '''
+                        set -e
                         npm install
                         npm run build
                         npm test -- --watchAll=false
@@ -45,10 +63,8 @@ pipeline {
         stage('Build Docker Images') {
             steps {
                 script {
-                    echo "🐳 Construction de l'image Docker Backend"
+                    echo "🐳 Construction des images Docker"
                     sh "docker build -t $DOCKERHUB_USER/mon-backend:latest ./Backend"
-
-                    echo "🐳 Construction de l'image Docker Frontend"
                     sh "docker build -t $DOCKERHUB_USER/mon-frontend:latest ./Frontend"
                 }
             }
