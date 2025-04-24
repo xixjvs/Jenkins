@@ -47,10 +47,10 @@ pipeline {
             steps {
                 script {
                     echo "🐳 Construction de l'image Docker Backend"
-                    sh "docker build -t $DOCKERHUB_USER/mon-backend:latest ./Backend"
+                    sh "docker build -t $pauljosephd/mon-backend:latest ./Backend/odc"
 
                     echo "🐳 Construction de l'image Docker Frontend"
-                    sh "docker build -t $DOCKERHUB_USER/mon-frontend:latest ./Frontend"
+                    sh "docker build -t $pauljosephd/mon-frontend:latest ./Frontend"
                 }
             }
         }
