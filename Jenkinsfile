@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_HUB_CREDENTIALS = 'jnk-creds' // ID dans Jenkins Credentials
-        DOCKERHUB_USER = 'pauljosephd' // à changer avec ton vrai identifiant Docker Hub
+        DOCKER_HUB_CREDENTIALS = 'jnk-creds' // ID Jenkins Credentials
+        DOCKERHUB_USER = 'pauljosephd'       // ton nom d’utilisateur Docker Hub
     }
 
     stages {
@@ -16,11 +16,12 @@ pipeline {
 
         stage('Build & Test Backend (Django)') {
             steps {
-                dir('Backend') {
-                    echo "⚙️ Build & Test Django"
+                dir('Backend/odc') {
+                    echo "⚙️ Création de l'environnement virtuel et test de Django"
                     sh '''
                         python3 -m venv venv
                         . venv/bin/activate
+                        pip install --upgrade pip
                         pip install -r requirements.txt
                         python manage.py test
                     '''
@@ -31,7 +32,7 @@ pipeline {
         stage('Build & Test Frontend (React)') {
             steps {
                 dir('Frontend') {
-                    echo "⚙️ Build & Test React"
+                    echo "⚙️ Installation et test du frontend React"
                     sh '''
                         npm install
                         npm run build
@@ -44,10 +45,10 @@ pipeline {
         stage('Build Docker Images') {
             steps {
                 script {
-                    echo "🐳 Build image Docker pour le Backend"
+                    echo "🐳 Construction de l'image Docker Backend"
                     sh "docker build -t $DOCKERHUB_USER/mon-backend:latest ./Backend"
 
-                    echo "🐳 Build image Docker pour le Frontend"
+                    echo "🐳 Construction de l'image Docker Frontend"
                     sh "docker build -t $DOCKERHUB_USER/mon-frontend:latest ./Frontend"
                 }
             }
@@ -55,7 +56,7 @@ pipeline {
 
         stage('Push Docker Images') {
             steps {
-                echo "🚀 Push des images Docker sur Docker Hub"
+                echo "🚀 Envoi des images Docker sur Docker Hub"
                 withCredentials([usernamePassword(credentialsId: "${DOCKER_HUB_CREDENTIALS}", usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
                     sh '''
                         echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
