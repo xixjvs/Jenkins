@@ -34,7 +34,7 @@ pipeline {
                 dir('Frontend') {
                     echo "⚙️ Installation et test du frontend React"
                     sh '''
-                        export PATH=$PATH:/home/paul/.nvm/versions/node/v22.14.0/bin
+                        
                          npm install
                          npm run build
                          npm test -- --watchAll=false
