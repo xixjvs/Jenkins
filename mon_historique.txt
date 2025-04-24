@@ -1,0 +1,464 @@
+    1  ping 8.8.8.8
+    2  sudo apt install chrom
+    3  ls
+    4  cd Downloads/
+    5  ls
+    6  ./google-chrome-stable_current_amd64/
+    7  sudo apt install ./google-chrome-stable_current_amd64
+    8  sudo apt install ./google-chrome-stable_current_amd64.deb 
+    9  sudo su
+   10  ls /usr/share/
+   11  ping google.com
+   12  reboot now
+   13  systemctl reboot
+   14  sudo apt update && sudo apt install gnome-terminal
+   15  su -
+   16  sudo apt update && sudo apt install gnome-terminal
+   17  su paul
+   18  whoami 
+   19  su -c "visudo"
+   20  sudo apt install ./google-chrome-stable_current_amd64.deb 
+   21  sudo apt update && sudo apt install gnome-terminal
+   22  wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+   23  sudo dpkg -i google-chrome-stable_current_amd64.deb
+   24  [200~sudo apt-get install -f
+   25  ~sudo apt-get install -f
+   26  sudo apt-get install -f
+   27  google-chrome-stable
+   28  reboot
+   29  sudo reboot
+   30  sudo apt get update
+   31  sudo apt-get update
+   32  sudo apt-get upgrate
+   33  sudo apt-get upgrade
+   34  sudo restart now 
+   35  sudo restart -0 now
+   36  sudo restart -0 
+   37  sudo restar
+   38  sudo reboot
+   39  sudo shutdown -0 now
+   40  sudo shutdown now
+   41  sudo apt install hollywood
+   42  ls
+   43  run hollywood
+   44  cd Downloads/
+   45  ls
+   46  run `hollywood`
+   47  /usr/bin/hollywood 
+   48  3
+   49  ls
+   50  cd 
+   51  ls
+   52  sudo -i
+   53  login
+   54  whoami 
+   55  ls /s
+   56  ls -q
+   57  ls -a
+   58  wifite
+   59  sudo apt install wifite
+   60  wifite
+   61  sudo wifite
+   62  clone https://github.com/aanarchyy/bully
+   63  sudo clone https://github.com/aanarchyy/bully
+   64  sudo https://github.com/aanarchyy/bully
+   65  exit
+   66  run `hollywood`
+   67  wifite
+   68  sudo wifite
+   69  shutdown -0
+   70  shutdown now
+   71  sudo shutdown now
+   72  sudo clone https://github.com/aanarchyy/bully
+   73  git clone https://github.com/aanarchyy/bully
+   74  git clone https://hashcat.net/hashcat/
+   75  git clone https://github.com/orgs/hashcat/repositories
+   76  sudo git clone https://github.com/orgs/hashcat/repositories
+   77  git clone https://github.com/hashcat/hashcat.git
+   78  sudo apt install hcxdumptool
+   79  sudo apt install hcxtools
+   80  sudo apt install macchanger
+   81  sudo apt install bully
+   82  sudo apt install hashcat
+   83  wifite
+   84  sudo wifite
+   85  sudo kill -9 701 724 781 782
+   86  iw dev wlp2s0 info 
+   87  sudo apt-get install iw
+   88  iw dev wlp2s0 info 
+   89  which iw 
+   90  sudo qpt-get install --reinstall iw
+   91  sudo apt-get install --reinstall iw
+   92  sudo /usr/sbin/iw dev wlp2s0 info
+   93  echo $PATH
+   94  export PATH=$PATH:/usr/sbin
+   95  iw dev wlp2s0 info 
+   96  sudo ip link set wlp2s0 down
+   97  sudo iw dev wlp2s0 set type monitor
+   98  sudo ip link set wlp2s0 up
+   99  sudo airodump-ng wlp2s0
+  100  sudo wifite --kill
+  101  ip a
+  102  npm start:api
+  103  npm run start:api
+  104  npm run dev
+  105  sudo su
+  106  whoismac
+  107  whoami
+  108  sudo su
+  109  passwd
+  110  sudo wifite --kill
+  111  ruby -v
+  112  sudo apt install ruby
+  113  bundler -v
+  114  sudo apt install bundler
+  115  bundle install 
+  116  gem install bundler
+  117  sudo gem install bundler
+  118  bundle install 
+  119  ls
+  120  cd Downloads/
+  121  ls
+  122  bundle install VMware-Workstation-Full-17.6.3-24583834.x86_64.bundle 
+  123  bundle install -g VMware-Workstation-Full-17.6.3-24583834.x86_64.bundle 
+  124  man bundle
+  125  bundle package VMware-Workstation-Full-17.6.3-24583834.x86_64.bundle 
+  126  chmod +x VMware-Workstation-Full-17.6.3-24583834.x86_64.bundle
+  127  ./VMware-Workstation-Full-17.6.3-24583834.x86_64.bundle
+  128  sudo ./VMware-Workstation-Full-17.6.3-24583834.x86_64.bundle
+  129  VMware
+  130  top
+  131  hollywood
+  132  exit
+  133  htop
+  134  exit
+  135  alias term='gnome-terminal'
+  136  gnome-terminal
+  137  konsole
+  138  xfce4-terminal
+  139  exit
+  140  ls
+  141  cat 120\ PILE\ CONTROL\ DE\ FLUX.txt 
+  142  pwd
+  143  cd bully/
+  144  ls
+  145  cd src/
+  146  ls
+  147  exit
+  148  sudo apt update
+  149  sudo apt install nvidia-driver nvidia-settings
+  150  sudo nano /etc/apt/sources.list
+  151  sudo apt update
+  152  sudo apt upgrade
+  153  sudo apt install nvidia-driver nvidia-settings
+  154  sudo apt install nvidia-detect
+  155  nvidia-detect 
+  156  sudo apt install 
+  157  sudo apt install nvidia-driver
+  158  nvidia-smi
+  159  sudo apt install NVIDIA Corporation GM107GLM
+  160  sudo apt install Quadro M1000M
+  161  sudo reboot
+  162  chrom
+  163  firefox
+  164  monitor
+  165  chrome
+  166  Chrome
+  167  wine setup.exe
+  168  sudo dpkg --add-architecture i386
+  169  sudo apt update 
+  170  sudo apt install wine wine32:i386 wine64 libwine libwine:i386 fonts-wine
+  171  wine --version
+  172  winecfg
+  173  wine setup.exe
+  174  [200~sudo apt --fix-broken install
+  175  sudo apt --fix-broken install
+  176  sudo dpkg --add-architecture i386
+  177  sudo apt update
+  178  sudo apt install libfreetype6:i386
+  179  wine SteamSetup.exe 
+  180  pwd
+  181  sudo apt install wine
+  182  history
+  183  echo $XDG_CURRENT_DESKTOP
+  184  sudo dpkg-reconfigure lightdm
+  185  sudo dpkg-reconfigure sddm
+  186  sudo systemctl restart display-manager
+  187  sudo reboot
+  188  sudo apt unsintall libfreetype6:i386
+  189  sudo apt remove libfreetype6:i386
+  190  sudo apt remove --purge libfreetype6:i386
+  191  sudo apt install --reinstall lightdm
+  192  exit
+  193  sudo apt install --reinstall lightdm
+  194  sudo dpkg-reconfigure lightdm
+  195  mv ~/.config ~/.config_backup
+  196  sudo apt install --reinstall gnome-session gdm3
+  197  sudo dpkg --configure -a 
+  198  sudo apt --fix-broken install
+  199  sudo apt install --reinstall lightdm
+  200  sudo dpkg-reconfigure lightdm
+  201  mv ~/.config ~/.config_backup
+  202  sudo apt install --reinstall gnome-session gdm3
+  203  gnome-control-center
+  204  xfce4-settings-manager
+  205  sudo apt upgrade
+  206  sudo apt update
+  207  sudo reboot
+  208  history
+  209  history
+  210  sudo systemctl restart gdm3 
+  211  chrom
+  212  chrome
+  213  sudo apt install gnome-control-center
+  214  gsettings reset org.gnome.desktop.interface icon-theme
+  215  gsettings set org.gnome.desktop.interface icon-theme 'Adwaita'
+  216  sudo apt update
+  217  sudo apt ungrade
+  218  sudo apt upgrade
+  219  sudo reboot
+  220  sudo dpkg-reconfigure gdm3
+  221  sudo reboot
+  222  sudo apt update
+  223  sudo apt upgrade
+  224  sudo apt install xserver-xorg-input-libinput
+  225  sudo systemctl restart lightdm  # Pour les environnements utilisant LightDM
+  226  note
+  227  gedite
+  228  mousepad
+  229  exit
+  230  exit
+  231  exit
+  232  exut
+  233  exit
+  234  exit
+  235  exit
+  236  exit
+  237  xfce4-terminal --disable-server
+  238  exit
+  239  sudo apt install xdotool wmctrl libinput-tools
+  240  git -v
+  241  git clone https://github.com/bulletmark/libinput-gestures.git
+  242  cd libinput-gestures/
+  243  sudo make install 
+  244  sudo gpasswd -a $USER input
+  245  newgrp input
+  246  mkdir -p ~/.config
+  247  cp /etc/libinput-gestures.conf ~/.config/libinput-gestures.conf
+  248  nano ~/.config/libinput-gestures.conf
+  249  libinput-gestures-setup autostart
+  250  libinput-gestures-setup start
+  251  nano ~/.config/libinput-gestures.conf
+  252  libinput-gestures-setup start
+  253  libinput-gestures-setup autostart
+  254  libinput-gestures-setup start
+  255  nano ~/.config/libinput-gestures.conf
+  256  libinput-gestures-setup autostart
+  257  libinput-gestures-setup start
+  258  nano ~/.config/libinput-gestures.conf
+  259  libinput-gestures-setup autostart
+  260  libinput-gestures-setup start
+  261  gesture swipe right 3 xdotool set_desktop --relative -- 1  # Changer vers le bureau de droite
+  262  exit
+  263  exit
+  264  exit
+  265  exut
+  266  exit
+  267  xof
+  268  man x
+  269  reboot
+  270  sudo reboot
+  271  sudo apt disconect pad
+  272  pad
+  273  disconet
+  274  man disconnect
+  275  man disconect
+  276  man remove
+  277  wine gta_sa.exe 
+  278  wine CDS\ II.exe 
+  279  reboot
+  280  sudo su
+  281  ls
+  282  cd Down
+  283  cd Downloads/
+  284  ls
+  285  cat TD.docx 
+  286  ls
+  287  rm TD.docx 
+  288  ls
+  289  cat research.docx.pdf 
+  290  65;1;9c
+  291  ls
+  292  rm research.docx.pdf 
+  293  rm CV\ en-US.docx 
+  294  arch 
+  295  man arch
+  296  zip TP.rar 
+  297  ls
+  298  ls -a
+  299  ls -l
+  300  sudo shutdown now
+  301  sudo reboot
+  302  sudo reboot 
+  303  sudo reboot
+  304  sudo shutdown now
+  305  ls /dev/input/js*
+  306  ls /dev/input/js0/ | grep -i "sony"
+  307  ls /dev/input/by-id/ | grep -i "sony"
+  308  sudo apt install jstest-gtk joystick
+  309  jstest /dev/input/js0
+  310  sudo pip install ds4drv 
+  311  sudo apt install pip
+  312  sudo pip install ds4drv 
+  313  sudo apt install ds4drv
+  314  sudo apt install pytthon3
+  315  sudo apt install python3
+  316  sudo apt install ds4drv
+  317  sudo pip install ds4drv 
+  318  sudo apt install pipx python3-venv
+  319  pipx ensurepath 
+  320  pipx install ds4drv
+  321  ds4drv
+  322  echo $PATH | grep ".local/bin"
+  323  echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
+  324  source ~/.bashrc
+  325  echo $PATH | grep ".local/bin"
+  326  which ds4drv
+  327  ds4drv 
+  328  sudo nano /etc/udev/rules.d/99-ds4drv.rules
+  329  sudo udevadm control --reload-rules
+  330  sudo udevadm trigger
+  331  sudo usermod -aG input $USER
+  332  ds4drv 
+  333  sudo groupadd uinput 
+  334  sudo usermod -aG uinput $USER
+  335  sudo nano /etc/udev/rules.d/99-ds4drv.rules
+  336  sudo udevadm control --reload-rules
+  337  sudo udevadm trigger
+  338  sudo modprobe uinput  
+  339  ls -l /dev/uinput
+  340  sudo reboot
+  341  sudo apt update
+  342  sudo apt upgrade
+  343  sudo apt full-upgrade
+  344  wireshark
+  345  wireshark-common
+  346  sudo apt --fix-missing install
+  347  sudo apt install -f
+  348  sudo apt autoremove
+  349  sudo dpkg --configure -a
+  350  sudo apt check
+  351  cat /var/log/apt/history.log
+  352  cleat
+  353  clear
+  354  ls
+  355  sudo apt check
+  356  sudo apt install check
+  357  sudo apt check
+  358  check
+  359  sudo check
+  360  sudo dpkg --audit
+  361  journalctl -p 3 -xb
+  362  clear
+  363  sudo apt install wget
+  364  wget https://cdn.akamai.steamstatic.com/client/installer/steam.deb
+  365  ls
+  366  sudo dpkg -i steam.deb
+  367  sudo apt --fix-broken install 
+  368  steam
+  369  ds4drv 
+  370  exit
+  371  setting
+  372  set
+  373  run setting
+  374  exit
+  375  sudo reboot
+  376  sudo shutdown now
+  377  code
+  378  cd Downloads/
+  379  ls
+  380  sudo dpkg  code_1.98.2-1741788907_amd64.deb
+  381  ls
+  382  cd code_1.99.2-1744250061_amd64/
+  383  ls
+  384  cd ..
+  385  ls
+  386  sudo apt install ./code_1.99.2-1744250061_amd64.deb
+  387  code
+  388  /usr/bin/hollywood 
+  389  'hollywood'
+  390  exit
+  391  'hollywood'
+  392  ls commande 
+  393  ls commande
+  394  ls command
+  395  exit
+  396  ll commande
+  397  exit
+  398  ll
+  399  l l 
+  400  clear
+  401  ll
+  402  exit 
+  403  sudo reboot
+  404  sudo apt install gparted
+  405  lsblk
+  406  sudo gparted
+  407  sudo shutdown 
+  408  sudo shutdown now 
+  409  git clone https://github.com/AWS-ODC-P4-C1/Backend.git
+  410  git clone https://github.com/AWS-ODC-P4-C1/Frontend.git
+  411  tree
+  412  tree -L
+  413  tree -L 3
+  414  code .
+  415  tree -L 2
+  416  docker compose up --build
+  417  sudo docker compose up --build
+  418  sudo docker compose up build
+  419  sudo docker-compose up --build
+  420  sudo dockercompose up --build
+  421  sudo docker compose up --build
+  422  docker compose --version
+  423  sudo docker compose up --build
+  424  clear
+  425  history -clear
+  426  exit
+  427  history 
+  428  clear
+  429  sudo docker --version
+  430  docker pull hello-world
+  431  sudo docker pull hello-world
+  432  docker run hello-world
+  433  sudo docker run hello-world
+  434  docker images
+  435  sudo docker images
+  436  sudo docker ps
+  437  sudo docker ps -a
+  438  docker start a74a6f01c78e
+  439  sudo docker start a74a6f01c78e
+  440  sudo docker run nginx
+  441  sudo docker run -d nginx
+  442  sudo docker run --name nginx-server nginx
+  443  sudo run -it nginx bash
+  444  sudo docker run -it nginx bash
+  445  sudo docker run -p 8080:80 nginx
+  446  docker network ls
+  447  sudo docker network ls
+  448  sudo docker create --driver bridge my_net_work1
+  449  sudo docker network create --driver bridge my_net_work1
+  450  sudo docker network create --driver=bridge --subnet=172.168.0.0/16 --ip-range=172.168.13.0/24 --gateway=172.168.5.254 br0
+  451  sudo docker network remove my_net_work1
+  452  sudo docker inspect text-me-backend-sgbd-db-1
+  453  sudo docker images
+  454  sudo docker inspect backend
+  455  sudo docker stop hello-world
+  456  sudo docker logs backend
+  457  sudo docker log backend
+  458  sudo docker images
+  459  sudo docker stop 74cc54e27dc4
+  460  sudo docker logs 9bcd10235545
+  461  sudo docker rm 74cc54e27dc4
+  462  sudo docker rmi 74cc54e27dc4
+  463  sudo docker stop 74cc54e27dc4
+  464  history > mon_historique.txt
