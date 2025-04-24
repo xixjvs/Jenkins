@@ -5,7 +5,7 @@ services:
   backend:
     image: backend
     build:
-      context: /home/paul/Documents/DEVOPS/Docker/Backend/odc
+      context: ./Backend/odc
       dockerfile: Dockerfile
     ports:
       - 8000:8000
@@ -37,7 +37,7 @@ services:
   frontend:
     image: frontend
     build:
-      context: /home/paul/Documents/DEVOPS/Docker/Frontend
+      context: ./Frontend
       dockerfile: Dockerfile
     ports:
       - 5173:5173
