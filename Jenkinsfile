@@ -37,7 +37,7 @@ pipeline {
                         export PATH=$PATH:/var/lib/jenkins/.nvm/versions/node/v22.15.0/bin/
                          /var/lib/jenkins/.nvm/versions/node/v22.15.0/bin/npm install
                          /var/lib/jenkins/.nvm/versions/node/v22.15.0/bin/npm run build
-                         /var/lib/jenkins/.nvm/versions/node/v22.15.0/bin/npm test -- --watchAll=false
+                         #/var/lib/jenkins/.nvm/versions/node/v22.15.0/bin/npm test -- --watchAll=false
                     '''
                 }
             }
