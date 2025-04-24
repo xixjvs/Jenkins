@@ -47,10 +47,10 @@ pipeline {
             steps {
                 script {
                     echo "🐳 Construction de l'image Docker Backend"
-                    sh "docker build -t $pauljosephd/mon-backend:latest ./Backend/odc"
+                    sh "docker build -t $'pauljosephd'/mon-backend:latest ./Backend/odc"
 
                     echo "🐳 Construction de l'image Docker Frontend"
-                    sh "docker build -t $pauljosephd/mon-frontend:latest ./Frontend"
+                    sh "docker build -t $'pauljosephd'/mon-frontend:latest ./Frontend"
                 }
             }
         }
@@ -58,7 +58,7 @@ pipeline {
         stage('Push Docker Images') {
             steps {
                 echo "🚀 Envoi des images Docker sur Docker Hub"
-                withCredentials([usernamePassword(credentialsId: "${DOCKER_HUB_CREDENTIALS}", usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
+                withCredentials([usernamePassword(credentialsId: "${jnk-creds}", usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
                     sh '''
                         echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
                         docker push $DOCKER_USER/mon-backend:latest
