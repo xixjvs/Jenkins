@@ -84,7 +84,7 @@ DATABASES = {
         'NAME': 'odcdb',
         'USER': 'odc',
         'PASSWORD': 'odc123',
-        'HOST': 'database',
+        'HOST': 'localhost',
         'PORT': '5432',
     }
 }
