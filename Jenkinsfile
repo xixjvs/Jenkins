@@ -69,7 +69,7 @@ pipeline {
         }
         stage('run'){
             steps{
-                dir('cd ../../'){
+                dir('cd ..'){
                 sh '''
                 docker-compose build
                 docker-compose up
