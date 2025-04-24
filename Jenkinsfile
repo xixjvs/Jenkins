@@ -34,10 +34,9 @@ pipeline {
                 dir('Frontend') {
                     echo "⚙️ Installation et test du frontend React"
                     sh '''
-                        
-                         npm install
-                         npm run build
-                         npm test -- --watchAll=false
+                         /var/lib/jenkins/.nvm/versions/node/v22.15.0/bin/npm install
+                         /var/lib/jenkins/.nvm/versions/node/v22.15.0/bin/npm run build
+                         /var/lib/jenkins/.nvm/versions/node/v22.15.0/bin/npm test -- --watchAll=false
                     '''
                 }
             }
