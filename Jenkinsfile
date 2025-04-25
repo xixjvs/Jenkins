@@ -82,10 +82,14 @@ pipeline {
 
     post {
         success {
-            echo "✅ CI/CD terminé avec succès"
+            mail to: 'doguepauljoseph@gmail.com',
+                 subject:"deploiement reussi",
+                  body: "l'application a ete deploye avec succes"
         }
         failure {
-            echo "❌ Échec du pipeline"
+            mail to: 'doguepauljoseph@gmail.com',
+                 subject:"echec du deploiement",
+                  body: "veuillez corriger vos erreurs"
         }
     }
 }
