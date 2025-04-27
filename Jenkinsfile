@@ -72,7 +72,7 @@ pipeline {
                 dir('cd ..'){
                 sh '''
                 docker-compose build
-                docker-compose up
+                docker-compose up -d
                 #docker run --rm -d -p 8081:8081 ${DOCKERHUB_USER}/mon-frontend:latest
                 '''
                 }
