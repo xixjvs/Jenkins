@@ -84,10 +84,10 @@ pipeline {
                     echo "🚀 Déploiement dans Kubernetes"
                     sh '''
                     # Assurez-vous que kubectl est installé et configuré (kubeconfig disponible sur Jenkins)
-                    kubectl apply -f k8s/backend-deployment.yaml
-                    kubectl apply -f k8s/backend-service.yaml
-                    kubectl apply -f k8s/frontend-deployment.yaml
-                    kubectl apply -f k8s/frontend-service.yaml
+                    kubectl apply -f K8s/backend-deployment.yaml
+                    kubectl apply -f K8s/backend-service.yaml
+                    kubectl apply -f K8s/frontend-deployment.yaml
+                    kubectl apply -f K8s/frontend-service.yaml
                     '''
                 }
             }
