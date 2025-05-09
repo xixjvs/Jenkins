@@ -83,6 +83,11 @@ pipeline {
                 script {
                     echo "🚀 Déploiement dans Kubernetes"
                     sh '''
+
+                     sh 'mkdir -p $HOME/.kube'
+                     sh 'cp -r /var/lib/jenkins/.kube $HOME/ || true'
+                     sh 'chmod 600 $HOME/.kube/config'
+                    
                     # Assurez-vous que kubectl est installé et configuré (kubeconfig disponible sur Jenkins)
                     kubectl apply -f K8s/backend-deployment.yaml
                     kubectl apply -f K8s/backend-service.yaml
