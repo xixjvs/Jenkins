@@ -36,6 +36,7 @@ spec:
         app: postgres
     spec:
       containers:
+<<<<<<< HEAD
         - name: postgres
           image: postgres:13
           ports:
@@ -54,3 +55,20 @@ spec:
         - name: postgres-storage
           persistentVolumeClaim:
             claimName: postgres-pvc
+=======
+        - name: backend
+          image: pauljosephd/mon-backend:latest
+          ports:
+            - containerPort: 8000
+          env:
+            - name: DB_HOST
+              value: "postgres"
+            - name: DB_PORT
+              value: "5432"
+            - name: DB_NAME
+              value: "odcdb"
+            - name: DB_USER
+              value: "odc"
+            - name: DB_PASSWORD
+              value: "odc123"
+>>>>>>> b1d17f6 (rebase base)
