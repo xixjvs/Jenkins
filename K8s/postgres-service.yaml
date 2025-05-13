@@ -7,6 +7,7 @@ spec:
     app: postgres
   ports:
     - protocol: TCP
-      port: 5432
-      targetPort: 5432
+      port: 5432         # Port exposé par le service
+      targetPort: 5432   # Port sur le conteneur PostgreSQL
+      nodePort: 30032    # Port accessible depuis l'extérieur (optionnel, sinon auto-assigné entre 30000-32767)
   type: NodePort
