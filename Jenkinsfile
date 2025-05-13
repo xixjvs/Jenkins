@@ -91,8 +91,8 @@ pipeline {
                     # Assurez-vous que kubectl est installé et configuré (kubeconfig disponible sur Jenkins)
                     kubectl apply -f K8s/backend-deployment.yaml
                     kubectl apply -f K8s/postgres-deployment.yaml
-                    kubectl apply -f K8s/postgres-service.yaml
-                    kubectl apply -f K8s/backend-service.yaml
+                    #kubectl apply -f K8s/postgres-service.yaml
+                    #kubectl apply -f K8s/backend-service.yaml
                     kubectl apply -f K8s/frontend-deployment.yaml
                     kubectl apply -f K8s/frontend-service.yaml
                     '''
