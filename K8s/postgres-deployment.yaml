@@ -44,7 +44,7 @@ spec:
             - name: POSTGRES_DB
               value: odcdb
             - name: POSTGRES_USER
-              value: odcodc
+              value: odc
             - name: POSTGRES_PASSWORD
               value: odc123
           volumeMounts:
