@@ -30,7 +30,7 @@ services:
     image: backend
     command: python manage.py migrate
     depends_on:
-      - database
+      - postgres
     profiles:
       - tools
 
