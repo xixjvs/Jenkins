@@ -14,6 +14,26 @@ pipeline {
             }
         }
 
+             stage('Analyse SonarQube') {
+            steps {
+                withSonarQubeEnv('SonarQube') {
+                    withCredentials([string(credentialsId: 'toker-server', variable: 'SONAR_TOKEN')]) {
+                        echo '🔍 Exécution de l\'analyse SonarQube'
+                        sh """
+                            export PATH=$PATH:/var/lib/jenkins/sonar-scanner-5.0.1.3006-linux/bin
+                            sonar-scanner \
+                            -Dsonar.projectKey=$SONAR_PROJECT_KEY \
+                            -Dsonar.host.url=$SONAR_HOST_URL \
+                            -Dsonar.login=$SONAR_TOKEN \
+                            -Dsonar.exclusions=**/venv/**,**/node_modules/** \
+                            -Dsonar.sources=. \
+                            -X
+                        """
+                    }
+                }
+            }
+        }
+
         stage('Build & Test Backend (Django)') {
             steps {
                 dir('Backend/odc') {
