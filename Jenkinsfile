@@ -2,8 +2,16 @@ pipeline {
     agent any
 
     environment {
+        // Configuration Docker
         DOCKER_HUB_CREDENTIALS = 'jnk-creds' // ID Jenkins Credentials
         DOCKERHUB_USER = 'pauljosephd'       // ton nom d’utilisateur Docker Hub
+        // Configuration SonarQube
+        SONAR_HOST_URL = 'http://localhost:9000'
+        SONAR_PROJECT_KEY = 'mon-projet'
+        
+        // Configuration Chemins
+        BACKEND_DIR = 'Backend/odc'
+        FRONTEND_DIR = 'Frontend'
     }
 
     stages {
