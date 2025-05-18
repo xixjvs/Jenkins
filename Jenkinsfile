@@ -114,8 +114,10 @@ pipeline {
                     sh '''
 
                      # mkdir -p $HOME/.kube
-                     cp -r /var/lib/jenkins/.kube $HOME/ || true
-                     chmod 600 $HOME/.kube/config
+                    # cp -r /var/lib/jenkins/.kube $HOME/ || true
+                     #chmod 600 $HOME/.kube/config
+
+                     export KUBECONFIG=/var/lib/jenkins/.minikube/profiles/minikube/config
                     
                     # Assurez-vous que kubectl est installé et configuré (kubeconfig disponible sur Jenkins)
                     kubectl apply -f K8s/backend-deployment.yaml
