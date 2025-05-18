@@ -1,5 +1,6 @@
 provider "kubernetes" {
   config_path = "~/.kube/config"
+  insecure    = true
 }
 
 resource "kubernetes_persistent_volume_claim" "postgres_pvc" {
