@@ -12,6 +12,9 @@ pipeline {
         // Configuration Chemins
         BACKEND_DIR = 'Backend/odc'
         FRONTEND_DIR = 'Frontend'
+
+        //configuration du terraform
+        KUBECONFIG = '/var/lib/jenkins/.kube/config'
     }
 
     stages {
@@ -126,6 +129,16 @@ pipeline {
                     '''
                 }
             }
+        }
+        stage('Init') {
+          steps {
+                sh 'terraform init'
+              }
+        }
+        stage('Apply') {
+          steps {
+            sh 'terraform apply -auto-approve'
+          }
         }
 
     }
