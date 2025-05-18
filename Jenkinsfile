@@ -13,8 +13,6 @@ pipeline {
         BACKEND_DIR = 'Backend/odc'
         FRONTEND_DIR = 'Frontend'
 
-        //configuration du terraform
-        KUBECONFIG = '/var/lib/jenkins/.kube/config'
     }
 
     stages {
