@@ -1,160 +1,6 @@
-terraform {
-  required_providers {
-    kubernetes = {
-      source  = "hashicorp/kubernetes"
-      version = "~> 2.0"
-    }
-  }
-}
-
 provider "kubernetes" {
   config_path = "~/.kube/config"
 }
-
-#######################
-# FRONTEND DEPLOYMENT #
-#######################
-resource "kubernetes_deployment" "frontend" {
-  metadata {
-    name = "frontend-deployment"
-    labels = {
-      app = "frontend"
-    }
-  }
-
-  spec {
-    replicas = 1
-
-    selector {
-      match_labels = {
-        app = "frontend"
-      }
-    }
-
-    template {
-      metadata {
-        labels = {
-          app = "frontend"
-        }
-      }
-
-      spec {
-        container {
-          name  = "frontend"
-          image = "pauljosephd/mon-frontend:latest"
-
-          port {
-            container_port = 80
-          }
-        }
-      }
-    }
-  }
-}
-
-resource "kubernetes_service" "frontend_service" {
-  metadata {
-    name = "frontend-service"
-  }
-
-  spec {
-    selector = {
-      app = "frontend"
-    }
-
-    port {
-      port        = 80
-      target_port = 80
-    }
-
-    type = "NodePort"
-  }
-}
-
-######################
-# BACKEND DEPLOYMENT #
-######################
-resource "kubernetes_deployment" "backend" {
-  metadata {
-    name = "backend"
-    labels = {
-      app = "backend"
-    }
-  }
-
-  spec {
-    replicas = 1
-
-    selector {
-      match_labels = {
-        app = "backend"
-      }
-    }
-
-    template {
-      metadata {
-        labels = {
-          app = "backend"
-        }
-      }
-
-      spec {
-        container {
-          name  = "backend"
-          image = "pauljosephd/mon-backend:latest"
-
-          port {
-            container_port = 8000
-          }
-
-          env {
-            name  = "DB_HOST"
-            value = "postgres"
-          }
-          env {
-            name  = "DB_PORT"
-            value = "5432"
-          }
-          env {
-            name  = "DB_NAME"
-            value = "odcdb"
-          }
-          env {
-            name  = "DB_USER"
-            value = "odc"
-          }
-          env {
-            name  = "DB_PASSWORD"
-            value = "odc123"
-          }
-        }
-      }
-    }
-  }
-}
-
-resource "kubernetes_service" "backend_service" {
-  metadata {
-    name = "backend-service"
-  }
-
-  spec {
-    selector = {
-      app = "backend"
-    }
-
-    port {
-      port        = 8000
-      target_port = 8000
-    }
-
-    type = "ClusterIP"
-  }
-}
-
-##########################
-# POSTGRESQL DEPLOYMENT  #
-##########################
 
 resource "kubernetes_persistent_volume_claim" "postgres_pvc" {
   metadata {
@@ -201,26 +47,28 @@ resource "kubernetes_deployment" "postgres" {
           name  = "postgres"
           image = "postgres:latest"
 
-          port {
-            container_port = 5432
-          }
-
           env {
             name  = "POSTGRES_DB"
             value = "odcdb"
           }
+
           env {
             name  = "POSTGRES_USER"
             value = "odc"
           }
+
           env {
             name  = "POSTGRES_PASSWORD"
             value = "odc123"
           }
 
+          port {
+            container_port = 5432
+          }
+
           volume_mount {
-            mount_path = "/var/lib/postgresql/data"
             name       = "postgres-storage"
+            mount_path = "/var/lib/postgresql/data"
           }
         }
 
@@ -236,21 +84,103 @@ resource "kubernetes_deployment" "postgres" {
   }
 }
 
-resource "kubernetes_service" "postgres_service" {
+resource "kubernetes_deployment" "backend" {
   metadata {
-    name = "postgres"
+    name = "backend"
+    labels = {
+      app = "backend"
+    }
   }
 
   spec {
-    selector = {
-      app = "postgres"
+    replicas = 1
+
+    selector {
+      match_labels = {
+        app = "backend"
+      }
     }
 
-    port {
-      port        = 5432
-      target_port = 5432
+    template {
+      metadata {
+        labels = {
+          app = "backend"
+        }
+      }
+
+      spec {
+        container {
+          name  = "backend"
+          image = "pauljosephd/mon-backend:latest"
+
+          env {
+            name  = "DB_HOST"
+            value = "postgres"
+          }
+
+          env {
+            name  = "DB_PORT"
+            value = "5432"
+          }
+
+          env {
+            name  = "DB_NAME"
+            value = "odcdb"
+          }
+
+          env {
+            name  = "DB_USER"
+            value = "odc"
+          }
+
+          env {
+            name  = "DB_PASSWORD"
+            value = "odc123"
+          }
+
+          port {
+            container_port = 8000
+          }
+        }
+      }
+    }
+  }
+}
+
+resource "kubernetes_deployment" "frontend" {
+  metadata {
+    name = "frontend-deployment"
+    labels = {
+      app = "frontend"
+    }
+  }
+
+  spec {
+    replicas = 1
+
+    selector {
+      match_labels = {
+        app = "frontend"
+      }
     }
 
-    type = "ClusterIP"
+    template {
+      metadata {
+        labels = {
+          app = "frontend"
+        }
+      }
+
+      spec {
+        container {
+          name  = "frontend"
+          image = "pauljosephd/mon-frontend:latest"
+
+          port {
+            container_port = 80
+          }
+        }
+      }
+    }
   }
 }
