@@ -1,11 +1,11 @@
 provider "kubernetes" {
-  config_path = "~/.kube/config"
+  config_path = "/var/lib/jenkins/.kube/config"
   insecure    = true
 }
 
 resource "kubernetes_persistent_volume_claim" "postgres_pvc" {
   metadata {
-    name = "postgres-pvc"
+    name = "postgres-deployment"
   }
 
   spec {
