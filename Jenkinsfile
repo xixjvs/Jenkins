@@ -13,6 +13,9 @@ pipeline {
         BACKEND_DIR = 'Backend/odc'
         FRONTEND_DIR = 'Frontend'
 
+        //configuration supplementaire
+        TF_IN_AUTOMATION = "true"
+
     }
 
     stages {
@@ -130,15 +133,20 @@ pipeline {
                 }
             }
         }
-        stage('Init') {
-          steps {
-                sh 'terraform init'
-              }
+        stage('Initialiser Terraform') {
+            steps {
+                dir('K8s/terraform') {
+                    sh 'terraform init'
+                }
+            }
         }
-        stage('Apply') {
-          steps {
-            sh 'terraform apply -auto-approve'
-          }
+
+        stage('Appliquer la configuration Terraform') {
+            steps {
+                dir('K8s/terraform') {
+                    sh 'terraform apply -auto-approve'
+                }
+            }
         }
 
     }
