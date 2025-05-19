@@ -110,7 +110,7 @@ pipeline {
                 }
             }
         }
-        stage('Déploiement Kubernetes') {
+        /*stage('Déploiement Kubernetes') {
             steps {
                 script {
                     echo "🚀 Déploiement dans Kubernetes"
@@ -132,7 +132,7 @@ pipeline {
                     '''
                 }
             }
-        }
+        }*/
         stage('Initialiser Terraform') {
             steps {
                 dir('K8s/terraform') {
