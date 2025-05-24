@@ -85,6 +85,27 @@ resource "kubernetes_deployment" "postgres" {
   }
 }
 
+resource "kubernetes_service" "postgres_service" {
+  metadata {
+    name = "postgres"
+  }
+
+  spec {
+    selector = {
+      app = "postgres"
+    }
+
+    port {
+      protocol    = "TCP"
+      port        = 5432
+      target_port = 5432
+    }
+
+    type = "ClusterIP"
+  }
+}
+
+
 resource "kubernetes_deployment" "backend" {
   metadata {
     name = "backend"
@@ -148,6 +169,27 @@ resource "kubernetes_deployment" "backend" {
   }
 }
 
+resource "kubernetes_service" "backend_service" {
+  metadata {
+    name = "backend-service"
+  }
+
+  spec {
+    selector = {
+      app = "backend"
+    }
+
+    port {
+      protocol    = "TCP"
+      port        = 8000
+      target_port = 8000
+    }
+
+    type = "ClusterIP"
+  }
+}
+
+
 resource "kubernetes_deployment" "frontend" {
   metadata {
     name = "frontend-deployment"
@@ -183,5 +225,25 @@ resource "kubernetes_deployment" "frontend" {
         }
       }
     }
+  }
+}
+
+resource "kubernetes_service" "frontend_service" {
+  metadata {
+    name = "frontend-service"
+  }
+
+  spec {
+    selector = {
+      app = "frontend"
+    }
+
+    port {
+      protocol    = "TCP"
+      port        = 80
+      target_port = 80
+    }
+
+    type = "ClusterIP"
   }
 }
