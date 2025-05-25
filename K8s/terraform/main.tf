@@ -214,26 +214,69 @@ resource "kubernetes_deployment" "backend" {
     }
   }
 }
-
-resource "kubernetes_service" "backend_service" {
+resource "kubernetes_deployment" "backend" {
   metadata {
-    name = "backend-service"
+    name = "backend"
+    labels = {
+      app = "backend"
+    }
+    annotations = {
+      redeploy = "${timestamp()}"
+    }
   }
 
   spec {
-    selector = {
-      app = "backend"
+    replicas = 1
+
+    selector {
+      match_labels = {
+        app = "backend"
+      }
     }
 
-    port {
-      protocol    = "TCP"
-      port        = 8000
-      target_port = 8000
-    }
+    template {
+      metadata {
+        labels = {
+          app = "backend"
+        }
+      }
 
-    type = "ClusterIP"
+      spec {
+        container {
+          name  = "backend"
+          image = "pauljosephd/mon-backend:latest"
+          image_pull_policy = "Always"
+
+          env {
+            name  = "DB_HOST"
+            value = "postgres"
+          }
+          env {
+            name  = "DB_PORT"
+            value = "5432"
+          }
+          env {
+            name  = "DB_NAME"
+            value = "odcdb"
+          }
+          env {
+            name  = "DB_USER"
+            value = "odc"
+          }
+          env {
+            name  = "DB_PASSWORD"
+            value = "odc123"
+          }
+
+          port {
+            container_port = 8000
+          }
+        }
+      }
+    }
   }
 }
+
 
 
 
@@ -242,6 +285,9 @@ resource "kubernetes_deployment" "frontend" {
     name = "frontend-deployment"
     labels = {
       app = "frontend"
+    }
+    annotations = {
+      redeploy = "${timestamp()}"
     }
   }
 
@@ -265,6 +311,7 @@ resource "kubernetes_deployment" "frontend" {
         container {
           name  = "frontend"
           image = "pauljosephd/mon-frontend:latest"
+          image_pull_policy = "Always"
 
           port {
             container_port = 80
@@ -274,6 +321,7 @@ resource "kubernetes_deployment" "frontend" {
     }
   }
 }
+
 
 resource "kubernetes_service" "frontend_service" {
   metadata {
