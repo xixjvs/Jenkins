@@ -2,7 +2,7 @@
 import axios from "axios";
 const axiosInstance = axios.create({
 
-    baseURL: "monapp.local/api/",
+    baseURL: "http://127.0.0.1:37851/api/",
 
 });
 
