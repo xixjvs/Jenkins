@@ -3,6 +3,52 @@ provider "kubernetes" {
   insecure    = true
 }
 
+resource "kubernetes_ingress_v1" "mon_ingress" {
+  metadata {
+    name = "mon-ingress"
+    annotations = {
+      "nginx.ingress.kubernetes.io/rewrite-target" = "/"
+    }
+  }
+
+  spec {
+    rule {
+      host = "monapp.local"
+
+      http {
+        path {
+          path = "/api"
+          path_type = "Prefix"
+
+          backend {
+            service {
+              name = "backend-service"
+              port {
+                number = 8000
+              }
+            }
+          }
+        }
+
+        path {
+          path = "/"
+          path_type = "Prefix"
+
+          backend {
+            service {
+              name = "frontend-service"
+              port {
+                number = 80
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
 resource "kubernetes_persistent_volume_claim" "postgres_pvc" {
   metadata {
     name = "postgres-deployment"
@@ -188,6 +234,7 @@ resource "kubernetes_service" "backend_service" {
     type = "ClusterIP"
   }
 }
+
 
 
 resource "kubernetes_deployment" "frontend" {
