@@ -136,7 +136,10 @@ pipeline {
         stage('Initialiser Terraform') {
             steps {
                 dir('K8s/terraform') {
-                    sh 'terraform init'
+                    sh '''
+                    rm terraform.tfstate terraform.tfstate.backup
+                    terraform init
+                    '''
                 }
             }
         }
