@@ -1,11 +1,9 @@
 
 import axios from "axios";
 const axiosInstance = axios.create({
-<<<<<<< HEAD
+
     baseURL: " http://127.0.0.1:44277/api/",
-=======
-    baseURL: " http://192.168.49.2:30099/api/",
->>>>>>> 4b8b6fd (pushdc)
+
 });
 
 export const UseAxios = () => {
