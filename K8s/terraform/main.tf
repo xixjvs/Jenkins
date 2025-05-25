@@ -48,7 +48,6 @@ resource "kubernetes_ingress_v1" "mon_ingress" {
   }
 }
 
-
 resource "kubernetes_persistent_volume_claim" "postgres_pvc" {
   metadata {
     name = "postgres-deployment"
@@ -151,69 +150,6 @@ resource "kubernetes_service" "postgres_service" {
   }
 }
 
-
-resource "kubernetes_deployment" "backend" {
-  metadata {
-    name = "backend"
-    labels = {
-      app = "backend"
-    }
-  }
-
-  spec {
-    replicas = 1
-
-    selector {
-      match_labels = {
-        app = "backend"
-      }
-    }
-
-    template {
-      metadata {
-        labels = {
-          app = "backend"
-        }
-      }
-
-      spec {
-        container {
-          name  = "backend"
-          image = "pauljosephd/mon-backend:latest"
-
-          env {
-            name  = "DB_HOST"
-            value = "postgres"
-          }
-
-          env {
-            name  = "DB_PORT"
-            value = "5432"
-          }
-
-          env {
-            name  = "DB_NAME"
-            value = "odcdb"
-          }
-
-          env {
-            name  = "DB_USER"
-            value = "odc"
-          }
-
-          env {
-            name  = "DB_PASSWORD"
-            value = "odc123"
-          }
-
-          port {
-            container_port = 8000
-          }
-        }
-      }
-    }
-  }
-}
 resource "kubernetes_deployment" "backend" {
   metadata {
     name = "backend"
@@ -251,18 +187,22 @@ resource "kubernetes_deployment" "backend" {
             name  = "DB_HOST"
             value = "postgres"
           }
+
           env {
             name  = "DB_PORT"
             value = "5432"
           }
+
           env {
             name  = "DB_NAME"
             value = "odcdb"
           }
+
           env {
             name  = "DB_USER"
             value = "odc"
           }
+
           env {
             name  = "DB_PASSWORD"
             value = "odc123"
@@ -276,9 +216,6 @@ resource "kubernetes_deployment" "backend" {
     }
   }
 }
-
-
-
 
 resource "kubernetes_deployment" "frontend" {
   metadata {
@@ -321,7 +258,6 @@ resource "kubernetes_deployment" "frontend" {
     }
   }
 }
-
 
 resource "kubernetes_service" "frontend_service" {
   metadata {
