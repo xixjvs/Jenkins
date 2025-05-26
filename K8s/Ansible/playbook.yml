@@ -1,0 +1,26 @@
+---
+- name: Déploiement d'un conteneur avec Ansible
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Installer Docker
+      apt:
+        name: docker.io
+        state: present
+        update_cache: yes
+
+    - name: Lancer le service Docker
+      service:
+        name: docker
+        state: started
+        enabled: yes
+
+    - name: Lancer un conteneur Docker
+      docker_container:
+        name: mon-app
+        image: monutilisateur/monimage:latest
+        state: started
+        restart_policy: always
+        ports:
+          - "80:80"
