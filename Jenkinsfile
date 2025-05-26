@@ -133,25 +133,7 @@ pipeline {
                 }
             }
         }*/
-
-        stages {
-        stage('Terraform apply') {
-            steps {
-                dir('terraform') {
-                    sh 'terraform init'
-                    sh 'terraform apply -auto-approve'
-                }
-            }
-        }
-
-        stage('Ansible Deploy') {
-            steps {
-                dir('ansible') {
-                    sh 'ansible-playbook -i inventory.ini playbook.yml'
-                }
-            }
-        }
-    }
+    
         stage('Initialiser Terraform') {
             steps {
                 dir('K8s/terraform') {
@@ -167,6 +149,14 @@ pipeline {
             steps {
                 dir('K8s/terraform') {
                     sh 'terraform apply -auto-approve'
+                }
+            }
+        }
+
+        stage('Ansible Deploy') {
+            steps {
+                dir('Ansible') {
+                    sh 'ansible-playbook -i inventory.ini playbook.yml'
                 }
             }
         }
