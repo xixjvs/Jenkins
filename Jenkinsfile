@@ -156,6 +156,7 @@ pipeline {
         }
 
         stage('Ansible Deploy') {
+            dir('K8s/terraform') { 
             when {
                 expression {
                       currentBuild.result == null || currentBuild.result == 'SUCCESS' || currentBuild.result == 'FAILURE'
@@ -165,7 +166,7 @@ pipeline {
                 ansiblePlaybook(...)
               }
         }
-
+        }
 
         
 
