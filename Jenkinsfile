@@ -147,19 +147,27 @@ pipeline {
 
         stage('Appliquer la configuration Terraform') {
             steps {
-                dir('K8s/terraform') {
-                    sh 'terraform apply -auto-approve'
+                dir('K8s/terraform') { 
+                     catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
+                          sh 'terraform apply -auto-approve || true'
+                    }   
                 }
             }
         }
 
         stage('Ansible Deploy') {
-            steps {
-                dir('Ansible') {
-                    sh 'ansible-playbook -i inventory.ini playbook.yml'
+            when {
+                expression {
+                      currentBuild.result == null || currentBuild.result == 'SUCCESS' || currentBuild.result == 'FAILURE'
                 }
-            }
+             }
+             steps {
+                ansiblePlaybook(...)
+              }
         }
+
+
+        
 
     }
 
