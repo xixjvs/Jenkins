@@ -17,7 +17,7 @@ resource "kubernetes_ingress_v1" "mon_ingress" {
 
       http {
         path {
-          path = "/api"
+          path      = "/api"
           path_type = "Prefix"
 
           backend {
@@ -31,7 +31,7 @@ resource "kubernetes_ingress_v1" "mon_ingress" {
         }
 
         path {
-          path = "/"
+          path      = "/"
           path_type = "Prefix"
 
           backend {
@@ -161,6 +161,12 @@ resource "kubernetes_deployment" "backend" {
     }
   }
 
+  lifecycle {
+    ignore_changes = [
+      metadata[0].annotations["redeploy"]
+    ]
+  }
+
   spec {
     replicas = 1
 
@@ -237,7 +243,6 @@ resource "kubernetes_service" "backend_service" {
   }
 }
 
-
 resource "kubernetes_deployment" "frontend" {
   metadata {
     name = "frontend-deployment"
@@ -247,6 +252,12 @@ resource "kubernetes_deployment" "frontend" {
     annotations = {
       redeploy = "${timestamp()}"
     }
+  }
+
+  lifecycle {
+    ignore_changes = [
+      metadata[0].annotations["redeploy"]
+    ]
   }
 
   spec {
