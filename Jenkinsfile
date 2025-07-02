@@ -156,20 +156,21 @@ pipeline {
         }
 
         stage('Ansible Deploy') {
-            dir('cd../Ansible') { 
-            when {
-                expression {
-                      currentBuild.result == null || currentBuild.result == 'SUCCESS' || currentBuild.result == 'FAILURE'
-                }
-             }
-             steps {
-                ansiblePlaybook(
-                    playbook: 'playbook.yml',
-                    inventory: 'inventory.ini'
-                )
-              }
+    when {
+        expression {
+            currentBuild.result == null || currentBuild.result == 'SUCCESS' || currentBuild.result == 'FAILURE'
         }
+    }
+    steps {
+        dir('../Ansible') {
+            ansiblePlaybook(
+                playbook: 'playbook.yml',
+                inventory: 'inventory.ini'
+            )
         }
+    }
+}
+
 
         
 
