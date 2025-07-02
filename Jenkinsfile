@@ -163,7 +163,10 @@ pipeline {
                 }
              }
              steps {
-                ansiblePlaybook(...)
+                ansiblePlaybook(
+                    playbook: 'playbook.yml',
+                    inventory: 'inventory.ini'
+                )
               }
         }
         }
