@@ -163,10 +163,12 @@ pipeline {
     }
     steps {
         dir('../Ansible') {
-            ansiblePlaybook(
-                playbook: 'playbook.yml',
-                inventory: 'inventory.ini'
-            )
+            withEnv(['PATH=/usr/bin:$PATH']) {
+                ansiblePlaybook(
+                    playbook: 'playbook.yml',
+                    inventory: 'inventory.ini'
+                )
+            }
         }
     }
 }
